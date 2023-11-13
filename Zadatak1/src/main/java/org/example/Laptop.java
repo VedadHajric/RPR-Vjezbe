@@ -1,11 +1,8 @@
 package org.example;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Laptop {
+public class Laptop implements Serializable {
     private String brend;
     private String model;
     private double cijena;
@@ -13,9 +10,39 @@ public class Laptop {
     private int hdd;
     private int ssd;
     private String procesor;
-    private String gtafickaKartica;
+    private String grafickaKartica;
     private double velicinaEkrana;
-    public Laptop() {};
+
+    public Laptop(String brend, String model, double cijena, int ram, int hdd, int ssd, String procesor, String grafickaKartica, double velicinaEkrana) {
+        this.brend = brend;
+        this.model = model;
+        this.cijena = cijena;
+        this.ram = ram;
+        this.hdd = hdd;
+        this.ssd = ssd;
+        this.procesor = procesor;
+        this.grafickaKartica = grafickaKartica;
+        this.velicinaEkrana = velicinaEkrana;
+    }
+
+
+    @Override
+    public String toString() {
+        return "LAPTOP {" +
+                "brand = '" + brend + '\'' +
+                ", model = '" + model + '\'' +
+                ", price = " + cijena +
+                ", RAM = " + ram +
+                ", HDD = " + hdd +
+                ", SSD = " + ssd +
+                ", CPU = '" + procesor + '\'' +
+                ", GPU = '" + grafickaKartica + '\'' +
+                ", screen_size = " + velicinaEkrana +
+                '}';
+    }
+
+    public Laptop() {
+    }
 
     public String getBrend() {
         return brend;
@@ -73,12 +100,12 @@ public class Laptop {
         this.procesor = procesor;
     }
 
-    public String getGtafickaKartica() {
-        return gtafickaKartica;
+    public String getGrafickaKartica() {
+        return grafickaKartica;
     }
 
-    public void setGtafickaKartica(String gtafickaKartica) {
-        this.gtafickaKartica = gtafickaKartica;
+    public void setGrafickaKartica(String grafickaKartica) {
+        this.grafickaKartica = grafickaKartica;
     }
 
     public double getVelicinaEkrana() {
@@ -89,22 +116,5 @@ public class Laptop {
         this.velicinaEkrana = velicinaEkrana;
     }
 
-    interface LaptopDao {
-        void dodajLaptopUListu(Laptop laptop);
-        void dodajLaptopUFile(Laptop laptop) throws IOException;
-        Laptop getLaptop(String procesor) throws Exception;
-        void napuniListu(ArrayList<Laptop> laptopi);
-        ArrayList<Laptop> vratiPodatkeIzDatoteke() throws IOException;
-    };
 
-    class LaptopDaoSerializableFile implements LaptopDao {
-        File file;
-        ArrayList<Laptop> laptopi;
-        @Override
-        public  void dodajLaptopUListu(Laptop laptop) {
-            laptopi.add(laptop);
-        }
-        @Override
-        public void dodajLaptopUFile(Laptop laptop) throws FileNotFoundException
-    }
 }
