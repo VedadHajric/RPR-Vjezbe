@@ -1,11 +1,18 @@
 package org.example;
 
-public class InformacijeONastavniku extends LicneInformacije{
-    private String titulu;
-    public String getTitulu() {
-        return titulu;
+import java.util.ArrayList;
+import java.util.List;
+
+public class InformacijeONastavniku extends LicneInformacije {
+    String titula;
+    List<Ocjena> lista_ocjena;
+    public void setTitula(String t){
+        this.titula=t;
     }
-    public void setTitulu(String titulu) {
-        this.titulu = titulu;
+    public String getTitula(){
+        return this.titula;
+    }
+    public void ocijeni(Ocjena o){
+        lista_ocjena.add(o);
     }
 }

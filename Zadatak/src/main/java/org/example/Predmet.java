@@ -1,8 +1,11 @@
 package org.example;
 
+import java.util.List;
+
 public class Predmet {
     private String naziv;
     private String opis;
+    List<Ocjena> lista_ocjena;
 
     public String getNaziv() {
         return naziv;
@@ -18,5 +21,9 @@ public class Predmet {
 
     public void setOpis(String opis) {
         this.opis = opis;
+    }
+
+    public void ocijeni(Ocjena o){
+        lista_ocjena.add(o);
     }
 }

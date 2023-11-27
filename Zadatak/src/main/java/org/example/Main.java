@@ -15,8 +15,8 @@ public class Main {
         InformacijeONastavniku nastavnik = new InformacijeONastavniku();
         nastavnik.setIme("Robert");
         nastavnik.setPrezime("Kumerle");
-        nastavnik.setTitulu("diplomirani znalac");
-        System.out.println(nastavnik.getIme() + " " + nastavnik.getPrezime() + " " + nastavnik.getTitulu() + ".");
+        nastavnik.setTitula("diplomirani znalac");
+        System.out.println(nastavnik.getIme() + " " + nastavnik.getPrezime() + " " + nastavnik.getTitula() + ".");
 
     }
 }
